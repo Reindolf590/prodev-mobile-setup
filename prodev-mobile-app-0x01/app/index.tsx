@@ -1,45 +1,55 @@
-import { Text, View } from "react-native";
-import { StyleSheet } from "react-native";
+import React from 'react';
+import { View, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#90caf9",
-  },
-  largeText: {
-    fontSize: 30,
-    color: "#f44336",
-    marginBottom: 5,
-    fontWeight: "700",
-    fontVariant: ["small-caps"],
-  },
-  mediumText: {
-    fontSize: 20,
-    color: "#9c27b0",
-    marginBottom: 10,
-    fontWeight: "500",
-    textAlign: "right",
-  },
-  smallText: {
-    fontSize: 15,
-    color: "#2196f3",
-    fontWeight: "400",
-    textAlign: "center",
-  },
+const App: React.FC = () => {
+    return (
+        <View style={styles.container}>
+            <Text>Entry Screen - Awesome</Text>
+
+            <View>
+                <Text style={styles.largeText}>Typescript is great if you practice more</Text>
+                <Text style={styles.mediumText}>React Native provides you a single codebase for cross platforms</Text>
+                <Text style={styles.smallText}>ALX is awesome</Text>
+            </View>
+        </View>
+    );
+};
+
+interface Styles {
+    container: ViewStyle;
+    largeText: TextStyle;
+    mediumText: TextStyle;
+    smallText: TextStyle;
+}
+
+const styles = StyleSheet.create<Styles>({
+    container: {
+        backgroundColor: '#90caf9',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+    },
+    largeText: {
+        fontSize: 30,
+        color: '#f44336',
+        marginBottom: 5,
+        fontWeight: '700',
+        fontVariant: ['small-caps'],
+    },
+    mediumText: {
+        fontSize: 20,
+        color: '#9c27b0',
+        marginBottom: 10,
+        fontWeight: '500',
+        textAlign: 'right',
+    },
+    smallText: {
+        fontSize: 15,
+        color: '#2196f3',
+        fontWeight: '400',
+        textAlign: 'center',
+    },
 });
 
-export default function Index() {
-  return (
-    <View
-      style={styles.container}
-    >
-      <Text>Entry Screen - Awesome</Text>
-      
-      <View>
-        <Text style={styles.largeText}>Typescript is great if you practice more</Text> 
-        <Text style={styles.mediumText}>React Native provides you a single codebase for cross platforms</Text>  
-        <Text style={styles.smallText}>ALX is awesome</Text>
-      </View>
-      
-  </View>
-  );
-}
+export default App;
